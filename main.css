@@ -1,0 +1,25 @@
+input {
+    margin: 17px 0px 10px 0px;
+}
+h1 {
+    color: #5cb85c;
+}
+.btn {
+    margin: 18px 0px 10px 0px;
+}
+.search-bin {
+    border-bottom: 1px solid #ddd;
+}
+.bin {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    word-wrap: break-word;
+    border-radius: 2px;
+    padding: 14px;
+    margin: 10px;
+    color: black;
+    display: inline-block;
+}
+.bin p {
+    color: #337ab7;
+}
