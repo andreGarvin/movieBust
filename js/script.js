@@ -37,7 +37,7 @@ var app = new Vue({
                         // assigning all the data to the results object
                         app.resp_data.data = response.data.Search;
                         app.resp_data.status = response.data.Response;
-                        app.resp_data.dlen = '# of results: ' + response.data.totalResults;
+                        app.resp_data.dlen = '# of results: ' + app.resp_data.data.length;
                     }
                     else {
                         
@@ -89,6 +89,8 @@ var app = new Vue({
                 */
                 this.view = false;
                 this.uiMessage = '';
+                this.resp_data.dlen = '';
+                this.resp_data.data = [];
             }
         }
         
