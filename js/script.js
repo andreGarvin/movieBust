@@ -5,25 +5,31 @@ var app = new Vue({
     data: {
         // the input
         query: '',
+        
         // the stored response data from imbd api
         resp_data: {
             data: [],
             dlen: '',
             status: ''
         },
-        // 
+        
+        // shows the bin of movies
         view: false,
+        
         // the ui messag; ex: searching... || No results found for 'fake movie'.
         uiMessage: ''
     },
     methods: {
+        
         // the mesthod handles the api data fetching
         search: _.debounce(function() {
+            
             // used to help access the app properties in axios
             var app = this;
             
             // makes the http request to the imdb api
             axios.get('https://www.omdbapi.com/?type=movie&s=' + app.query )
+            
                 // if the api gives back a 200
                 .then(function( response ) {
                     
@@ -54,6 +60,7 @@ var app = new Vue({
         
         // opend the link ong goglle for the movie searched
         open_link: function( title ) {
+           
            window.open('https://www.google.com/search?q=' + title.split(' ').join('+'), '_target');
         }
         

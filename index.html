@@ -33,7 +33,7 @@
                     <div class="row">
                         <h2 v-if="resp_data.status === 'False'" class='text-center'>{{ resp_data.data }}</h2>
                 
-                        <div v-else="resp_data.status === 'True'" v-for='result in resp_data.data' class="bin col-xs-5 col-md-3">
+                        <div v-else="resp_data.status === 'True'" v-for='result in resp_data.data' class="bin col-xs-5 col-md-3 col-md-offset-2 col-xs-oofset-2">
                             <h2 class='col-md-12 col-xs-12'>{{ result.Title }}</h2>
                             <p class='pull-right lead'>Year: {{ result.Year }}</p>
                             <p class='lead'>type: {{ result.Type }}</p>
