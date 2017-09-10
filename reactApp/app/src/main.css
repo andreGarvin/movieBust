@@ -1,0 +1,28 @@
+h1 {
+    color: #5cb85c;
+}
+.search-container {
+    border-bottom: 1px solid #ddd;
+}
+.search-container input {
+    margin: 17px 0px 10px 0px;
+}
+#uiMessage {
+    margin-top: 120px;
+}
+.bin {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    display: inline-block;
+    word-wrap: break-word;
+    border-radius: 2px;
+    padding: 14px;
+    margin: 10px;
+}
+.bin p {
+    color: #337ab7;
+}
+.btn {
+    word-wrap: break-word;
+    margin: 18px 0px 10px 0px;
+}

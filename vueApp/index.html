@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>movieBust</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        <link rel="stylesheet" href="main.css" type="text/css" />
+    </head>
+    <body>
+
+        <div id="app">
+
+            <div class="navbar navbar-default navbar-static-top">
+                <h1 class='col-md-4 col-xs-12'>Movie bust</h1>
+            </div>
+
+            <div class="container-fluid">
+                <div class="search-container col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-xs-9  col-sm-6 col-md-6 col-md-offset-3 col-xs-offset-1 col-sm-offset-3">
+                        <input v-model='query' type="text" class="form-control" placeholder='search' />
+                    </div>
+                </div>
+
+                <h1 v-if='searching'>search for: {{ query }}</h1>
+                <h3>{{ len ? len + ' results' : '' }}</h3>
+
+                <h3 id='uiMessage' class='text-center'>{{ uiMessage }}</h3>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row">
+                        <div v-if="status === true && mainMovie === undefined" v-for='movie in movies' class="bin col-xs-5 col-md-3 col-md-offset-2 col-xs-offset-2">
+                            <h2>{{ movie.Title }}</h2>
+                            <p class='lead'>Year: {{ movie.Year }}</p>
+                            <p class='lead'>type: {{ movie.Type }}</p>
+                            <img v-if="movie.Poster !== 'N/A'" :src="movie.Poster" class='img-responsive img-thumbnail' />
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <button @click='open_link( movie.Title )' class='btn btn-success btn-block'>{{ movie.Title }} on google</button>
+                                <button @click='moreInfo( movie.imdbID )' class='btn btn-primary btn-block'>more info</button>
+                            </div>
+                        </div>
+
+                        <div v-if='mainMovie !== undefined' class="bin col-xs-12 col-ms-12 col-md-12 col-xs-offset-3">
+                            <button @click='mainMovie = undefined' class='btn btn-default pull-right'>GO back</button>
+                            <img :src="mainMovie.Poster" class='img-responsive img-thumbnail pull-left' />
+                            <div class="col-xs-6 col-sm-6 col-md-6 pull-left">
+                                <h2>{{ mainMovie.Title }}</h2>
+                                <h3>Rated: {{ mainMovie.Rated }}</h3>
+                                <h3>Rating: {{ mainMovie.imdbRating }}</h3>
+                                <p v-for="rate in mainMovie.Ratings.filter(i => i.Source === 'Rotten Tomatoes')">{{ rate.Source }}: {{ rate.Value }}</p>
+                                <h3>Time: {{ mainMovie.Runtime }}</h3>
+                                <h2>A {{ mainMovie.Production }} Production</h2>
+                                <h3>Genres: {{ mainMovie.Genre }}</h3>
+                                <p class='lead'>Released: {{ mainMovie.Released }}</p>
+                                <p class='lead'>Director: {{ mainMovie.Director }}</p>
+                                <h3>{{ mainMovie.Plot }}</h3>
+                                <h3>Cast: {{ mainMovie.Actors }}</h3>
+                                <a v-if='mainMovie.Website !== "N/A"' class='lead' :href="mainMovie.Website">{{ mainMovie.Title }}</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--vueJS source code-->
+        <script src='https://unpkg.com/vue/dist/vue.js'></script>
+
+        <!--soruce code to make a api request-->
+        <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+
+        <!--map box script-->
+        <!--<script src='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>-->
+    </body>
+</html>
