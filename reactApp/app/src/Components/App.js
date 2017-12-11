@@ -20,7 +20,7 @@ export default class App extends Component {
     }
 
     searchForQuery(e) {
-        const query = e.target.value.replace(/^\s+|\s+$/g, '');
+        const query = e.target.value.trim();
 
         if ( query.length !== 0 ) {
             this.setState({ query, searching: true })

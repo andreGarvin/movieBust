@@ -10,7 +10,7 @@
         <div id="app">
 
             <div class="navbar navbar-default navbar-static-top">
-                <h1 class='col-md-4 col-xs-12'>Movie bust</h1>
+                <h1 class='col-md-4 col-xs-12'>Bad Movies</h1>
             </div>
 
             <div class="container-fluid">
@@ -34,7 +34,7 @@
                             <img v-if="movie.Poster !== 'N/A'" :src="movie.Poster" class='img-responsive img-thumbnail' />
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <button @click='open_link( movie.Title )' class='btn btn-success btn-block'>{{ movie.Title }} on google</button>
-                                <button @click='moreInfo( movie.imdbID )' class='btn btn-primary btn-block'>more info</button>
+                                <button @click='moreInfo( movie.imdbID, "view" )' class='btn btn-primary btn-block'>more info</button>
                             </div>
                         </div>
 
@@ -61,17 +61,10 @@
                 </div>
             </div>
         </div>
-
-
-        <!--vueJS source code-->
+        
         <script src='https://unpkg.com/vue/dist/vue.js'></script>
-
-        <!--soruce code to make a api request-->
         <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
-        <script type="text/javascript" src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
-        <script type="text/javascript" src="js/script.js"></script>
+        <script type="text/javascript" src="script.js"></script>
 
-        <!--map box script-->
-        <!--<script src='https://api.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>-->
     </body>
 </html>
